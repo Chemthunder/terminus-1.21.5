@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "select",
+    "cases": [
+      {
+        "model": {
+          "type": "model",
+          "model": "terminus:item/valediction"
+        },
+        "when": [
+          "gui",
+          "ground",
+          "fixed"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "terminus:item/valediction_handheld"
+    },
+    "property": "display_context"
+  }
+}

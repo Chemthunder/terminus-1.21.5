@@ -1,0 +1,12 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "terminus:item/valediction_gui"
+  },
+  "overrides": [
+    {
+      "predicate": { "is_held": 1.0 },
+      "model": "terminus:item/valediction_handheld"
+    }
+  ]
+}
