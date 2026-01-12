@@ -1,11 +1,15 @@
 package silly.chemthunder.terminus.item;
 
 import net.acoyt.acornlib.api.items.CustomHitSoundItem;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import silly.chemthunder.ported.api.ColorableItem;
 
 public class ValedictionItem extends Item implements ColorableItem, CustomHitSoundItem {
@@ -33,5 +37,8 @@ public class ValedictionItem extends Item implements ColorableItem, CustomHitSou
         playerEntity.playSound(SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK, 1, -3);
     }
 
-
+    @Override
+    public boolean canMine(ItemStack stack, BlockState state, World world, BlockPos pos, LivingEntity user) {
+        return !user.isInCreativeMode();
+    }
 }

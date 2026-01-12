@@ -6,6 +6,7 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
 import silly.chemthunder.terminus.Terminus;
 import silly.chemthunder.terminus.block.entity.SanctuaryBlockEntity;
@@ -24,17 +25,17 @@ public class SanctuaryBlockEntityRenderer implements BlockEntityRenderer<Sanctua
     public void render(SanctuaryBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
         matrices.push();
 
-        matrices.translate(-entity.getPos().getX(), -entity.getPos().getY() - 50, -entity.getPos().getZ());
+        matrices.translate(-entity.getPos().getX(), -entity.getPos().getY(), -entity.getPos().getZ());
 
-        RenderUtils.renderSkyBeam(
+        RenderUtils.renderTexturedCube(
                 matrices,
-                vertexConsumers.getBuffer(RenderLayer.getEntityTranslucent(
+                vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(
                         TEXTURE, true
                 )),
                 entity.getPos(),
                 entity.area,
-                365,
-                3
+                Vec2f.ZERO,
+                8
         );
 
         matrices.pop();

@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import silly.chemthunder.terminus.index.TerminusBlockEntities;
 
 public class SanctuaryBlockEntity extends BlockEntity {
-    public int area = 20;
+    public int area = 50;
 
 
     public SanctuaryBlockEntity(BlockPos pos, BlockState state) {
